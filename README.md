@@ -5,7 +5,8 @@
 ## Models
 -Post -> date:date rationale:text
 -User -> Devise
--AdminUser -> STI
+-AdminUser -> STI ( Single Table Inheritance)  
+ We will leverage AdminUser using User Table 
 
 ## Features:
 - Approval Workflow

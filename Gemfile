@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'devise', '~> 4.6', '>= 4.6.2'
 end
 
 group :development do
