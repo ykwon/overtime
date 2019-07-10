@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'devise', '~> 4.6', '>= 4.6.2'
+  gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 end
 
 group :development do
