@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
-    before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show]
 
-    def index  
+    def index 
+        @post = Post.all
     end
 
      def new  
