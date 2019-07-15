@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
     def index 
-        @post = Post.all
+        @posts = Post.all
     end
 
-     def new  
+    def new  
         @post = Post.new
-     end
+    end
 
-     def create 
+    def create 
         @post= Post.new(post_params)
         @post.user_id = current_user.id
         if @post.save
@@ -17,9 +17,9 @@ class PostsController < ApplicationController
         else
             render :new 
         end
-     end
+    end
     
-     def show 
+    def show 
         
     end
 

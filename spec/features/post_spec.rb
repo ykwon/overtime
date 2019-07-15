@@ -9,8 +9,9 @@ describe 'navigator' do
                          password_confirmation: '123456',
                          first_name: 'Jon',
                          last_name: 'snow')
-      login_as(user, scope: :user)
+    login_as(user, scope: :user)
   end
+
   describe 'index' do
     it 'can be reached successfully' do
       visit posts_path
@@ -21,15 +22,15 @@ describe 'navigator' do
       expect(page).to have_content(/Posts/)
     end
     it 'has a list of posts' do  
-      post1 = Post.create(date: Date.today, rationale: "Post1")
-      post2 = Post.create(date: Date.today, rationale: "Post2")
+      Post.create!(date: Date.today, rationale: "Post1" )
+      Post.create!(date: Date.today, rationale: "Post2")
       visit posts_path
-      expect(page).to have_content(/Post1 | Post2/)
+      expect(page).to have_content(/Post1|Post2/)
     end
   end
 
   describe 'creation' do
-    before do      
+    before do
       visit new_post_path
     end
 
