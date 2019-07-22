@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'devise', '~> 4.6', '>= 4.6.2'
   gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
 end
 
 group :development do

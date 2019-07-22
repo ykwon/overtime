@@ -4,12 +4,8 @@ require 'rails_helper'
 
 describe 'navigator' do
   before do 
-    @user = User.create(email: 'test@test.com',
-                         password: '123456',
-                         password_confirmation: '123456',
-                         first_name: 'Jon',
-                         last_name: 'snow')
-    login_as(@user, scope: :user)
+    @user = FactoryBot.create(:user)
+    login_as(@user, :scope => :user)
   end
 
   describe 'index' do
@@ -22,10 +18,12 @@ describe 'navigator' do
       expect(page).to have_content(/Posts/)
     end
     it 'has a list of posts' do  
-      Post.create!(date: Date.today, rationale: "Post1" , user_id: @user.id )
-      Post.create!(date: Date.today, rationale: "Post2" , user_id: @user.id)
+      # Post.create!(date: Date.today, rationale: "Post1" , user_id: @user.id)
+      # Post.create!(date: Date.today, rationale: "Post2" , user_id: @user.id)
+      post1= FactoryBot.build_stubbed(:post)
+      post2= FactoryBot.build_stubbed(:second_post)
       visit posts_path
-      expect(page).to have_content(/Post1|Post2/)
+      expect(page).to have_content(/Rationale|content/)
     end
   end
 
@@ -53,4 +51,13 @@ describe 'navigator' do
       expect(User.last.posts.last.rationale).to eq('User Association')
     end
   end
+describe 'edit' do
+  it 'can be reached by clicking edit on index page' do
+    post = FactoryBot.create(:post)
+    visit posts_path
+    click_link 'Edit'
+    expect(page.status_code).to eq(200)
+  end
+end
+
 end
