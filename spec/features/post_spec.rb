@@ -17,11 +17,11 @@ describe 'navigator' do
       visit posts_path
       expect(page).to have_content(/Posts/)
     end
-    it 'has a list of posts' do  
+    it 'has a list of posts' do
       # Post.create!(date: Date.today, rationale: "Post1" , user_id: @user.id)
       # Post.create!(date: Date.today, rationale: "Post2" , user_id: @user.id)
-      post1= FactoryBot.build_stubbed(:post)
-      post2= FactoryBot.build_stubbed(:second_post)
+      FactoryBot.build_stubbed(:post)
+      FactoryBot.build_stubbed(:second_post)
       visit posts_path
       expect(page).to have_content(/Rationale|content/)
     end
@@ -51,13 +51,26 @@ describe 'navigator' do
       expect(User.last.posts.last.rationale).to eq('User Association')
     end
   end
-describe 'edit' do
-  it 'can be reached by clicking edit on index page' do
-    post = FactoryBot.create(:post)
-    visit posts_path
-    click_link 'Edit'
-    expect(page.status_code).to eq(200)
-  end
-end
+  describe 'edit' do
+    before do
+      @post = FactoryBot.create(:post)
+    end
 
+    it 'can be reached by clicking edit on index page'  do      
+      
+      visit posts_path
+      click_link("edit_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be edited' do
+      visit edit_post_path("#{@post.id}")
+      # expect(page.status_code).to eq(200)
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]',with: 'Edit content'
+
+      click_on 'Save'
+      expect(page).to have_content('Edit content')
+    end
+  end
 end
