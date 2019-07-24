@@ -49,6 +49,9 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
   gem 'growl', '~> 1.0', '>= 1.0.3'
   gem 'gritter', '~> 1.2'
+  gem 'administrate', '~> 0.10.0'
+
+
 end
 
 group :development do
@@ -58,6 +61,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'bourbon', '~> 6.0'
   
 end
 
