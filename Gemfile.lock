@@ -44,7 +44,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    administrate (0.10.0)
+    administrate (0.11.0)
       actionpack (>= 4.2, < 6.0)
       actionview (>= 4.2, < 6.0)
       activerecord (>= 4.2, < 6.0)
@@ -273,7 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  administrate (~> 0.10.0)
+  administrate (~> 0.11.0)
   bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.4, >= 3.4.1)
   bourbon (~> 6.0)
