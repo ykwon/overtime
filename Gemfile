@@ -44,7 +44,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'devise', '~> 4.6', '>= 4.6.2'
+  gem 'devise', '~> 4.7'
   gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
   gem 'growl', '~> 1.0', '>= 1.0.3'
